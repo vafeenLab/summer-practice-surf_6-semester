@@ -1,0 +1,87 @@
+% !TEX TS-program = lualatex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fqw}[2023/12/29 1.0.0 Final qualification work utilities for VSU AMM]
+
+% Requirements
+\RequirePackage{fontspec}
+\RequirePackage{setspace}
+\RequirePackage{titling}
+\RequirePackage{indentfirst}
+\RequirePackage{titlesec}
+\RequirePackage{titletoc}
+\RequirePackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\RequirePackage[english, russian]{babel}
+\RequirePackage[skip=12.5pt]{parskip}
+
+% Commands
+\makeatletter
+\long\def\headdep#1{\long\def\@headdep{#1}}
+\long\def\sciadv#1{\long\def\@sciadv{#1}}
+\long\def\department#1{\long\def\@department{#1}}
+\long\def\titledesc#1{\long\def\@titledesc{#1}}
+\long\def\direction#1{\long\def\@direction{#1}}
+\long\def\profile#1{\long\def\@profile{#1}}
+\long\def\nolabel#1#2{\csname #1\endcsname*{#2} \addcontentsline{toc}{#1}{#2}}
+\long\def\@titletocstyle{\normalfont\normalsize}
+\long\def\@titlesecstyle{\@titletocstyle\centering\bfseries}
+\long\def\contentstyle#1{\titlecontents{#1}[0pt]{\@titletocstyle}{\thecontentslabel. }{}{\dotfill\contentspage}}
+\let\sectionbreak\clearpage
+\makeatother
+
+% Settings
+\makeatletter
+\setmainfont{Times New Roman}
+\setlength{\parindent}{1.25cm}
+\onehalfspacing
+\contentstyle{section}
+\contentstyle{subsection}
+\contentstyle{subsubsection}
+\titleformat{\section}{\@titlesecstyle}{\thesection. }{1pt}{}
+\titleformat{\subsection}{\@titlesecstyle}{\thesubsection. }{1pt}{}
+\titleformat{\subsubsection}{\@titlesecstyle}{\thesubsubsection. }{1pt}{}
+\makeatother
+
+% Title
+\makeatletter
+\long\def\@maketitle{%
+    \begin{titlingpage}
+        \begin{center}
+            МИНОБРНАУКИ  РОССИИ \\
+            ФЕДЕРАЛЬНОЕ  ГОСУДАРСТВЕННОЕ  БЮДЖЕТНОЕ \\
+            ОБРАЗОВАТЕЛЬНОЕ  УЧРЕЖДЕНИЕ  ВЫСШЕГО  ОБРАЗОВАНИЯ \\
+            «ВОРОНЕЖСКИЙ  ГОСУДАРСТВЕННЫЙ  УНИВЕРСИТЕТ» \\
+            (ФГБОУ ВО «ВГУ»)
+
+            Факультет прикладной математики, информатики и механики
+
+            \@department
+
+            \vfill
+
+            \begin{doublespace}
+                \textbf{\@title}
+            \end{doublespace}
+
+            \@titledesc
+
+            \@direction
+
+            \@profile
+
+            \vfill
+
+            \renewcommand{\arraystretch}{1.5}%
+            \setlength\tabcolsep{0.4cm}
+            \begin{tabular}{c c c c}
+                Зав. кафедрой & \underline{\hspace{3cm}} & д.т.н., проф.   & \@headdep \\
+                Обучающийся   & \underline{\hspace{3cm}} &                 & \@author  \\
+                Руководитель  & \underline{\hspace{3cm}} & к.ф.-м.н., доц. & \@sciadv  \\
+            \end{tabular}
+
+            \vfill
+
+            Воронеж, \@date
+        \end{center}
+    \end{titlingpage}
+    \setcounter{page}{2}}
+\makeatother

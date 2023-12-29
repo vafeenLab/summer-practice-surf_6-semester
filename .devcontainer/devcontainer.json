@@ -1,0 +1,44 @@
+{
+    "image": "hegerdes/vscode-latex",
+    "name": "LaTeX",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "james-yu.latex-workshop",
+                "tecosaur.latex-utilities",
+                "yzhang.markdown-all-in-one",
+                "valentjn.vscode-ltex"
+            ],
+            "settings": {
+                "latex-workshop.latex.recipe.default": "first",
+                "latex-workshop.latex.tools": [
+                    {
+                        "name": "lualatexmk",
+                        "command": "latexmk",
+                        "args": [
+                            "-synctex=1",
+                            "-interaction=nonstopmode",
+                            "-file-line-error",
+                            "-lualatex",
+                            "-outdir=%OUTDIR%",
+                            "%DOC%"
+                        ],
+                        "env": {}
+                    }
+                ],
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "latexmk (lualatex)",
+                        "tools": [
+                            "lualatexmk"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "postCreateCommand": {
+        "install-times-and-cyrillic": "sed -i 's/main/main contrib non-free non-free-firmware/g' /etc/apt/sources.list.d/debian.sources && apt update -y && apt install -y ttf-mscorefonts-installer texlive-lang-cyrillic",
+        "install-fqw": "mkdir /usr/share/texmf/tex/latex/fqw -p && ln -sd `find /workspaces -type d -name fqw 2>/dev/null | head -1` /usr/share/texmf/tex/latex/fqw && texhash"
+    }
+}
