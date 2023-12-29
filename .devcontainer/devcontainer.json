@@ -33,7 +33,10 @@
                             "lualatexmk"
                         ]
                     }
-                ]
+                ],
+                "[latex]": {
+                    "editor.wordWrap": "on"
+                }
             }
         }
     },
