@@ -11,7 +11,7 @@
 \RequirePackage{titletoc}
 \RequirePackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
 \RequirePackage[english, russian]{babel}
-\RequirePackage[skip=12.5pt]{parskip}
+\RequirePackage{parskip}
 \RequirePackage[nottoc, notlot, notlof]{tocbibind}
 
 % Commands
@@ -33,14 +33,15 @@
 \makeatletter
 \setmainfont{Times New Roman}
 \setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
 \onehalfspacing
+\sloppy
 \contentstyle{section}
 \contentstyle{subsection}
 \contentstyle{subsubsection}
 \titleformat{\section}{\@titlesecstyle}{\thesection. }{1pt}{}
 \titleformat{\subsection}{\@titlesecstyle}{\thesubsection. }{1pt}{}
 \titleformat{\subsubsection}{\@titlesecstyle}{\thesubsubsection. }{1pt}{}
-\sloppy
 \bibliographystyle{unsrt}
 \makeatother
 
@@ -52,26 +53,22 @@
             МИНОБРНАУКИ  РОССИИ \\
             ФЕДЕРАЛЬНОЕ  ГОСУДАРСТВЕННОЕ  БЮДЖЕТНОЕ \\
             ОБРАЗОВАТЕЛЬНОЕ  УЧРЕЖДЕНИЕ  ВЫСШЕГО  ОБРАЗОВАНИЯ \\
-            «ВОРОНЕЖСКИЙ  ГОСУДАРСТВЕННЫЙ  УНИВЕРСИТЕТ» \\
-            (ФГБОУ ВО «ВГУ»)
+            <<ВОРОНЕЖСКИЙ  ГОСУДАРСТВЕННЫЙ  УНИВЕРСИТЕТ>> \\
+            (ФГБОУ ВО <<ВГУ>>) \vspace{1em}
 
-            Факультет прикладной математики, информатики и механики
+            Факультет прикладной математики, информатики и механики \vspace{1em}
 
-            \@department
-
-            \vfill
+            \@department\vfill
 
             \begin{doublespace}
-                \textbf{\@title}
+                \textbf{\@title}\vspace{1em}
             \end{doublespace}
 
-            \@titledesc
+            \@titledesc\vspace{1em}
 
-            \@direction
+            \@direction\vspace{1em}
 
-            \@profile
-
-            \vfill
+            \@profile\vfill
 
             \renewcommand{\arraystretch}{1.5}%
             \setlength\tabcolsep{0.4cm}
@@ -79,9 +76,7 @@
                 Зав. кафедрой & \underline{\hspace{3cm}} & д.т.н., проф.   & \@headdep \\
                 Обучающийся   & \underline{\hspace{3cm}} &                 & \@author  \\
                 Руководитель  & \underline{\hspace{3cm}} & к.ф.-м.н., доц. & \@sciadv  \\
-            \end{tabular}
-
-            \vfill
+            \end{tabular}\vfill
 
             Воронеж, \@date
         \end{center}
