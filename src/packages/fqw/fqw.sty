@@ -12,11 +12,11 @@
 \RequirePackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
 \RequirePackage[english, russian]{babel}
 \RequirePackage{parskip}
-\RequirePackage[nottoc, notlot, notlof]{tocbibind}
 \RequirePackage{graphicx}
 \RequirePackage[labelsep=period]{caption}
 \RequirePackage{environ}
 \RequirePackage{tabularx}
+\RequirePackage{hyperref}
 
 % Commands
 \makeatletter
@@ -26,11 +26,17 @@
 \long\def\titledesc#1{\long\def\@titledesc{#1}}
 \long\def\direction#1{\long\def\@direction{#1}}
 \long\def\profile#1{\long\def\@profile{#1}}
-\long\def\nolabel#1#2{\csname #1\endcsname*{#2} \addcontentsline{toc}{#1}{#2}}
+\long\def\nolabel#1#2{\csname #1\endcsname*{\phantomsection #2}\addcontentsline{toc}{#1}{#2}}
 \long\def\@titletocstyle{\normalfont\normalsize}
 \long\def\@titlesecstyle{\@titletocstyle\centering\bfseries}
 \long\def\contentstyle#1{\titlecontents{#1}[0pt]{\@titletocstyle}{\thecontentslabel. }{}{\dotfill\contentspage}}
 \let\sectionbreak\clearpage
+\let\@oldbibliography\bibliography
+\long\def\bibliography#1{%
+    \cleardoublepage
+    \phantomsection\addcontentsline{toc}{section}{\refname}
+    \@oldbibliography{#1}
+}
 \makeatother
 
 % Settings
