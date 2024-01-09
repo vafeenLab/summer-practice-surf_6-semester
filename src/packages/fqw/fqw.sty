@@ -15,6 +15,8 @@
 \RequirePackage[nottoc, notlot, notlof]{tocbibind}
 \RequirePackage{graphicx}
 \RequirePackage[labelsep=period]{caption}
+\RequirePackage{environ}
+\RequirePackage{tabularx}
 
 % Commands
 \makeatletter
@@ -109,4 +111,40 @@
     \end{figure}}
 \long\def\image{\@ifstar\@@image\@image}
 \long\def\refimage#1{рис. \ref{fig:#1}.}
+\makeatother
+
+% Tables
+% \df[width]{columns}{t, m, b}{caption}{ref}
+% \df*[width]{columns}{t, m, b}{caption}
+% \refdf{ref}
+\makeatletter
+\newlength{\dfwidth}
+\setlength{\dfwidth}{0.8\textwidth}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\NewEnviron{df}[5][\dfwidth]{%
+    \begin{table}[h]
+        \centering
+        \let\@oldtabularxcolumn\tabularxcolumn
+        \renewcommand\tabularxcolumn[1]{#3{##1}}
+        \begin{tabularx}{#1}{#2}
+            \BODY
+        \end{tabularx}
+        \let\tabularxcolumn\@oldtabularxcolumn
+        \caption{#4}
+        \label{table:#5}
+    \end{table}}
+\NewEnviron{df*}[4][\dfwidth]{%
+    \begin{table}[h]
+        \centering
+        \let\@oldtabularxcolumn\tabularxcolumn
+        \renewcommand\tabularxcolumn[1]{#3{##1}}
+        \begin{tabularx}{#1}{#2}
+            \BODY
+        \end{tabularx}
+        \let\tabularxcolumn\@oldtabularxcolumn
+        \caption{#4}
+    \end{table}}
+\long\def\refdf#1{табл. \ref{table:#1}.}
 \makeatother
