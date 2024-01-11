@@ -49,8 +49,8 @@
 % Replace : to . in captions
 \RequirePackage[labelsep=period]{caption}
 
-% Set bibliography style
-\bibliographystyle{unsrt}
+% Set gost style for bibliography
+\bibliographystyle{pugost2008}
 
 % Add bibliography to toc and ignore hbadness
 \makeatletter
