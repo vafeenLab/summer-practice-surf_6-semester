@@ -43,6 +43,6 @@
     },
     "postCreateCommand": {
         "install-times-and-cyrillic": "sed -i 's/main/main contrib non-free non-free-firmware/g' /etc/apt/sources.list.d/debian.sources && apt update -y && apt install -y ttf-mscorefonts-installer texlive-lang-cyrillic",
-        "install-fqw": "mkdir /usr/share/texmf/tex/latex/fqw -p && ln -sd `find /workspaces -type d -name fqw 2>/dev/null | head -1` /usr/share/texmf/tex/latex/fqw && texhash"
+        "install-vsutex": "mkdir /usr/share/texmf/tex/latex/vsutex -p && ln -sd `find /workspaces -type d -name vsutex 2>/dev/null | head -1` /usr/share/texmf/tex/latex/vsutex && texhash"
     }
 }
