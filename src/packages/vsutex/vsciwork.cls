@@ -79,6 +79,9 @@
 \RequirePackage{titling}
 \makeatletter
 
+% Set current year by default
+\renewcommand{\@date}{\the\year}
+
 % Set head of department
 \newcommand{\@headdep}[1]{\PackageError{vsciwork}{Set headdep before the using maketitle}}
 \newcommand{\headdep}[1]{\renewcommand{\@headdep}{#1}}
