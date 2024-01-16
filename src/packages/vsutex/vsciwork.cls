@@ -147,6 +147,9 @@
 
 % Add images
 \RequirePackage{graphicx}
+
+% Add dummy images
+\RequirePackage{duckuments}
 \makeatletter
 
 % Set image width by default
@@ -172,8 +175,17 @@
         \caption{#2}
     \end{figure}}
 
+% Add dummy image with ref
+% \dimage[image parameters]{caption}{ref}
+\newcommand{\@dimage}[3][width=\imagewidth]{\@image[#1]{#2}{example-image-duck}{#3}}
+
+% Add dummy image without ref
+% \dimage[image parameters]{caption}
+\newcommand{\@@dimage}[2][width=\imagewidth]{\@@image[#1]{#2}{example-image-duck}}
+
 % Internal command
 \long\def\image{\@ifstar\@@image\@image}
+\long\def\dimage{\@ifstar\@@dimage\@dimage}
 
 % Add ref to image in the text
 \newcommand{\refimage}[1]{рис. \ref{fig:#1}.}
