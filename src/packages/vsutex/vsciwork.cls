@@ -159,7 +159,7 @@
 % Add image with ref
 % \image[image parameters]{caption}{filepath}{ref}
 \newcommand{\@image}[4][width=\imagewidth]{%
-    \begin{figure}[h]
+    \begin{figure}[!ht]
         \centering
         \includegraphics[#1]{#3}
         \caption{#2}
@@ -169,7 +169,7 @@
 % Add image without ref
 % \image[image parameters]{caption}{filepath}
 \newcommand{\@@image}[3][width=\imagewidth]{%
-    \begin{figure}[h]
+    \begin{figure}[!ht]
         \centering
         \includegraphics[#1]{#3}
         \caption{#2}
@@ -207,7 +207,7 @@
 % Add table with ref
 % \begin{df}[width]{columns}{t, m, b}{caption}{ref}
 \NewEnviron{df}[5][\dfwidth]{%
-    \begin{table}[h]
+    \begin{table}[!ht]
         \centering
         \let\@oldtabularxcolumn\tabularxcolumn
         \renewcommand\tabularxcolumn[1]{#3{##1}}
@@ -223,7 +223,7 @@
 % Add table without ref
 % \begin{df*}[width]{columns}{t, m, b}{caption}
 \NewEnviron{df*}[4][\dfwidth]{%
-    \begin{table}[h]
+    \begin{table}[!ht]
         \centering
         \let\@oldtabularxcolumn\tabularxcolumn
         \renewcommand\tabularxcolumn[1]{#3{##1}}
