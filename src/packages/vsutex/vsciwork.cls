@@ -87,28 +87,38 @@
 \renewcommand{\@date}{\the\year}
 
 % Set head of department
-\newcommand{\@headdep}[1]{\PackageError{vsciwork}{Set headdep before the using maketitle}}
-\newcommand{\headdep}[1]{\renewcommand{\@headdep}{#1}}
+\newcommand{\headdep}[1]{\newcommand{\@headdep}{#1}}
+
+% Set head of department grade
+\newcommand{\@headdepgrade}[0]{\hspace{3cm}}
+\newcommand{\headdepgrade}[1]{\renewcommand{\@headdepgrade}{#1}}
 
 % Set scientific adviser
-\newcommand{\@sciadv}[1]{\PackageError{vsciwork}{Set sciadv before the using maketitle}}
-\newcommand{\sciadv}[1]{\renewcommand{\@sciadv}{#1}}
+\newcommand{\sciadv}[1]{\newcommand{\@sciadv}{#1}}
+
+% Set scientific adviser grade
+\newcommand{\@sciadvgrade}[0]{\hspace{3cm}}
+\newcommand{\sciadvgrade}[1]{\renewcommand{\@sciadvgrade}{#1}}
 
 % Set department
-\newcommand{\@department}[1]{\PackageError{vsciwork}{Set department before the using maketitle}}
+\newcommand{\@department}[0]{\PackageError{vsciwork}{Set department before the using maketitle}}
 \newcommand{\department}[1]{\renewcommand{\@department}{#1}}
 
 % Set title description
-\newcommand{\@titledesc}[1]{\PackageError{vsciwork}{Set titledesc before the using maketitle}}
+\newcommand{\@titledesc}[0]{\PackageError{vsciwork}{Set titledesc before the using maketitle}}
 \newcommand{\titledesc}[1]{\renewcommand{\@titledesc}{#1}}
 
 % Set direction
-\newcommand{\@direction}[1]{\PackageError{vsciwork}{Set direction before the using maketitle}}
+\newcommand{\@direction}[0]{\PackageError{vsciwork}{Set direction before the using maketitle}}
 \newcommand{\direction}[1]{\renewcommand{\@direction}{#1}}
 
 % Set profile
-\newcommand{\@profile}[1]{\PackageError{vsciwork}{Set profile before the using maketitle}}
+\newcommand{\@profile}[0]{\PackageError{vsciwork}{Set profile before the using maketitle}}
 \newcommand{\profile}[1]{\renewcommand{\@profile}{#1}}
+
+% Set author grade
+\newcommand{\@authorgrade}[0]{\hspace{3cm}}
+\newcommand{\authorgrade}[1]{\renewcommand{\@authorgrade}{#1}}
 
 % Patch maketitle command
 \long\def\@maketitle{%
@@ -137,9 +147,13 @@
             \renewcommand{\arraystretch}{1.5}%
             \setlength\tabcolsep{0.4cm}
             \begin{tabular}{c c c c}
-                Зав. кафедрой & \underline{\hspace{3cm}} & д.т.н., проф.   & \@headdep \\
-                Обучающийся   & \underline{\hspace{3cm}} &                 & \@author  \\
-                Руководитель  & \underline{\hspace{3cm}} & к.ф.-м.н., доц. & \@sciadv  \\
+                \ifdefined\@headdep
+                Зав. кафедрой & \underline{\hspace{3cm}} & \@headdepgrade{} & \@headdep \\
+                \fi
+                Обучающийся   & \underline{\hspace{3cm}} & \@authorgrade{}  & \@author  \\
+                \ifdefined\@sciadv
+                Руководитель  & \underline{\hspace{3cm}} & \@sciadvgrade{}  & \@sciadv  \\
+                \fi
             \end{tabular}\vfill
 
             Воронеж, \@date
