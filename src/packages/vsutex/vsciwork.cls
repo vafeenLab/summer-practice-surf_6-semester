@@ -120,8 +120,10 @@
 \newcommand{\@authorgrade}[0]{\hspace{3cm}}
 \newcommand{\authorgrade}[1]{\renewcommand{\@authorgrade}{#1}}
 
-% Patch maketitle command
+% Patch maketitle command and ignore hbox
 \long\def\@maketitle{%
+    \let\@oldhfuzz\hfuzz
+    \hfuzz 10000pt
     \begin{titlingpage}
         \begin{center}
             МИНОБРНАУКИ  РОССИИ \\
@@ -160,6 +162,8 @@
         \end{center}
     \end{titlingpage}
     \setcounter{page}{2}
+    \let\hfuzz\@oldhfuzz
+    \let\@oldhfuzz\undefine
 }
 \makeatother
 
