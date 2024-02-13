@@ -2,8 +2,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{vsciwork}[2024/01/11 1.0.0 Science work template for VSU]
 
-% Set A4 paper and 14pt font size
-\LoadClass[14pt, a4paper]{extarticle}
+% Passtrow all options for class to extarticle class
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
+\ProcessOptions\relax
+
+% Set A4 paper
+\LoadClass[a4paper]{extarticle}
 
 % Set Russian as main document language
 \RequirePackage[english, russian]{babel}
