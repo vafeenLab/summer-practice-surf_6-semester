@@ -210,7 +210,7 @@
 \long\def\dimage{\@ifstar\@@dimage\@dimage}
 
 % Add ref to image in the text
-\newcommand{\refimage}[1]{рис. \ref{fig:#1}.}
+\newcommand{\refimage}[1]{рис.~\ref{fig:#1}.}
 \makeatother
 
 % Add tables
@@ -258,5 +258,5 @@
 }
 
 % Add ref to table in the text
-\newcommand{\refdf}[1]{табл. \ref{table:#1}.}
+\newcommand{\refdf}[1]{табл.~\ref{table:#1}.}
 \makeatother
