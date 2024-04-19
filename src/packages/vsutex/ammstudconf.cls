@@ -49,7 +49,7 @@
 
 % Add contacts information
 % \contact{fullname}{info}{email}
-\newcommand{\contact}[3]{\textbf{#1} --- #2. E-mail: #3 \vspace{1em}}
+\newcommand{\contact}[3]{\vspace{1em}\textbf{#1} --- #2. E-mail: #3}
 
 % Set title style
 \makeatletter
