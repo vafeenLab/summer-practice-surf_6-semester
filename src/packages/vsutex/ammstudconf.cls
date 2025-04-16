@@ -23,6 +23,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{color}
 \pagestyle{fancy}
+\setlength{\headheight}{15pt}
 \chead{\textcolor{red}{\@confname}}
 \lhead{}
 \rhead{}
