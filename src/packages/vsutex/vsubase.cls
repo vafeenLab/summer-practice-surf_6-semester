@@ -51,3 +51,28 @@
 \makeatletter
 \renewcommand{\@date}{\the\year}
 \makeatother
+
+% Add algorithms and translate it to Russian
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+\makeatletter
+
+\renewcommand{\ALG@name}{Алгоритм}
+\algrenewcommand\algorithmicend{\textbf{конец}}
+\algrenewcommand\algorithmicdo{\textbf{делать}}
+\algrenewcommand\algorithmicwhile{\textbf{пока}}
+\algrenewcommand\algorithmicfor{\textbf{для}}
+\algrenewcommand\algorithmicforall{\textbf{для всех}}
+\algrenewcommand\algorithmicloop{\textbf{цикл}}
+\algrenewcommand\algorithmicrepeat{\textbf{повторить}}
+\algrenewcommand\algorithmicuntil{\textbf{пока не}}
+\algrenewcommand\algorithmicprocedure{\textbf{процедура}}
+\algrenewcommand\algorithmicfunction{\textbf{функция}}
+\algrenewcommand\algorithmicif{\textbf{если}}
+\algrenewcommand\algorithmicthen{\textbf{то}}
+\algrenewcommand\algorithmicelse{\textbf{иначе}}
+\algrenewcommand\algorithmicrequire{\textbf{Вход:}}
+\algrenewcommand\algorithmicensure{\textbf{Выход:}}
+\algrenewcommand\algorithmicreturn{\textbf{возврат}}
+
+\makeatother

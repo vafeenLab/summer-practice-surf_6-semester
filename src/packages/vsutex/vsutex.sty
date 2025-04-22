@@ -30,7 +30,7 @@
     \end{figure}}
 
 % Add image without ref
-% \image[image parameters]{caption}{filepath}
+% \image*[image parameters]{caption}{filepath}
 \newcommand{\@@image}[3][width=\imagewidth]{%
     \begin{figure}[!ht]
         \centering
@@ -43,7 +43,7 @@
 \newcommand{\@dimage}[3][width=\imagewidth]{\@image[#1]{#2}{example-image-duck}{#3}}
 
 % Add dummy image without ref
-% \dimage[image parameters]{caption}
+% \dimage*[image parameters]{caption}
 \newcommand{\@@dimage}[2][width=\imagewidth]{\@@image[#1]{#2}{example-image-duck}}
 
 % Internal command
@@ -101,3 +101,33 @@
 % Add ref to table in the text
 \newcommand{\refdf}[1]{табл.~\ref{table:#1}.}
 \makeatother
+
+% Add algorithms
+% Set show line numbers every N lines
+\newcommand{\algeven}{1}
+
+% Add alg with ref
+% \begin{alg}[lines numbers every N lines]{caption}{ref}
+\NewEnviron{alg}[3][\algeven]{%
+    \begin{algorithm}
+        \begin{algorithmic}[#1]
+            \caption{#2}
+                \BODY
+            \label{alg:#3}
+        \end{algorithmic}
+    \end{algorithm}
+}
+
+% Add alg without ref
+% \begin{alg}[lines numbers every N lines]{caption}
+\NewEnviron{alg*}[2][\algeven]{%
+    \begin{algorithm}
+        \begin{algorithmic}[#1]
+            \caption{#2}
+                \BODY
+        \end{algorithmic}
+    \end{algorithm}
+}
+
+% Add ref to alg in the text
+\newcommand{\refalg}[1]{алг.~\ref{alg:#1}.}
