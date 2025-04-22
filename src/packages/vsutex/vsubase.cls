@@ -43,6 +43,9 @@
 % Set gost style for bibliography
 \bibliographystyle{pugost2008}
 
+% Add ability to use & in equations properly
+\RequirePackage{amsmath}
+
 % Internal packages
 \RequirePackage{environ}
 \RequirePackage{vsutex}
