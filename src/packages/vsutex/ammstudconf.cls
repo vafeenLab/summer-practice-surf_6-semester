@@ -13,6 +13,9 @@
 \titleformat{\subsection}{\normalfont\normalsize\centering\bfseries\itshape}{\thesubsection. }{0pt}{}
 \titleformat{\subsubsection}{\normalfont\normalsize\centering\bfseries\itshape}{\thesubsubsection. }{0pt}{}
 
+% Replace bullet to dashes in lists
+\let\labelitemi\labelitemii
+
 % Set headers
 \makeatletter
 
